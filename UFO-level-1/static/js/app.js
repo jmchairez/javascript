@@ -31,3 +31,29 @@ function filtertable(){
     var ufo = tableData.filter(function(sighting){
         return sighting.datetime == inputValue
     });
+
+    tablebody.html("")
+    if (ufo.length === 0){
+        var new_row = tablebody.append("tr")
+        new_row.append("td").text("NaN");
+        new_row.append("td").text("NaN");
+        new_row.append("td").text("NaN");
+        new_row.append("td").text("NaN");
+        new_row.append("td").text("NaN");
+        new_row.append("td").text("NaN");
+        new_row.append("td").text("NaN");
+    }else{
+        ufo.forEach(function(sighting){
+            
+            var new_row = tablebody.append("tr")
+            new_row.append("td").text(sighting.datetime);
+            new_row.append("td").text(sighting.city);
+            new_row.append("td").text(sighting.state);
+            new_row.append("td").text(sighting.country);
+            new_row.append("td").text(sighting.shape);
+            new_row.append("td").text(sighting.durationMinutes);
+            new_row.append("td").text(sighting.comments);
+        });
+    };
+
+};
