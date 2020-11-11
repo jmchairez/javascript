@@ -15,3 +15,19 @@ tableData.forEach(function(sighting){
     new_row.append("td").text(sighting.comments);
 });
 
+var button = d3.select("#filter-btn");
+var form = d3.select("form");
+
+button.on("click", filtertable);
+form.on("submit", filtertable);
+
+function filtertable(){
+    d3.event.preventDefault();
+
+    var inputElement = d3.select("#datetime");
+
+    var inputValue = inputElement.property("value");
+
+    var ufo = tableData.filter(function(sighting){
+        return sighting.datetime == inputValue
+    });
