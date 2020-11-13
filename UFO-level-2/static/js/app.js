@@ -46,3 +46,18 @@ function filtertable(){
         });
         fil ++;
     };
+
+    var state = d3.select("#state").property("value");
+    if(state.length > 0 && fil >0){
+        ufo = ufo.filter(function(sighting){
+            return sighting.state == state
+        });
+        fil++;
+    }else if(state.length >0 && fil ==0){
+        var ufo = tableData.filter(function(sighting){
+            return sighting.state == state
+        });
+        fil ++;
+    };
+
+    
