@@ -71,4 +71,15 @@ function filtertable(){
             return sighting.country == country
         });
         fil ++;
+    };
+
+    var shape = d3.select("#shape").property("value");
+    if(shape.length > 0 && fil >0){
+        ufo = ufo.filter(function(sighting){
+            return sighting.shape == shape
+        });
+    }else if(shape.length >0 && fil ==0){
+        var ufo = tableData.filter(function(sighting){
+            return sighting.shape == shape
+        });
     };    
