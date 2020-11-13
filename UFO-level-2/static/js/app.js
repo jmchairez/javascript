@@ -60,4 +60,15 @@ function filtertable(){
         fil ++;
     };
 
-    
+    var country = d3.select("#country").property("value");
+    if(country.length > 0 && fil >0){
+        ufo = ufo.filter(function(sighting){
+            return sighting.country == country
+        });
+        fil++;
+    }else if(country.length >0 && fil ==0){
+        var ufo = tableData.filter(function(sighting){
+            return sighting.country == country
+        });
+        fil ++;
+    };    
